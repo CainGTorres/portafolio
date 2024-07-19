@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root { /*Esta es una variable en CSS*/
+    --color-primario: #000000;
+    --color-secundario:#fcfcfd;
+    --color-terceario: #22D4FD;
+
+    --fuente-monterrat: "Montserrat", sans serif;
+    --fuente-krona: "krona one", sans serif;   
+}
+
+* { /*box-mode: Éste * (asterrisco) quiere decir que quiero hacer un cambio universal. Voy a cambiar el padding
+    y el margin en todos mis elementos del HTML*/
+    padding: 0;
+    margin:0;
+}
+
+body{
+    background-color: var(--color-primario);
+    color: var(--color-secundario);
+   /*height: 100vh; V: Significa de Viwport, line 6 HTML y el H: es la altura. Esto quiere decir que 
+                    La página va a ocupar el 100 porciento de altura*/ 
+    box-sizing: border-box; /*controla cómo se calcula el tamaño total de un elemento*/                
+}
+
+.header {
+    padding: 2% 0% 0% 15%; /*2: es el margen de arriba. 0: Derecha. 0: boton. 15: izquierda*/
+
+}
+
+.header__menu {
+    display: flex;
+    gap: 80px;
+}
+
+.header__menu__link {
+    font-family: var(--fuente-monterrat);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-terceario);
+    text-decoration: none;
+    
+}
+
+.presentacion {
+    display: flex; /*Transforma la forma en que los elementos se organizan. 
+                    Por patrón todo es organizado en línea. /////coloca los cuadrados uno al lado del otro/////*/
+    align-items: center;/*También transorma pero lleva mi elemento al centro. Esta propiedad alinea
+                            los elementos de acuerdo con los elementos que es mayor*/     
+    /*margin: 10% 15%; Crea espacio afuera de los elementos. Le da un Margen. /////agrega un margen para centrar los cuadrados en la pantalla/////*/ 
+    padding: 3% 15%; /*Este 15% es para los laterales*/
+    justify-content: space-between; /*Separa minuiciosamente, en este caso las letras*/  
+    gap: 82px;                             
+}
+
+.presentacion__contenido {
+    width: 50%; /*Width define el ancho de un elemento. Determina cuánto espacio horizontal ocupará
+                    el elemnto en la página web.*/
+    display: flex;  
+    flex-direction: column;
+    gap: 40px; /*Éste GAP Separa lo que vendría a ser los elementos que estén dentro del conjunto
+                presentacion__contenido. /////Agrega espacios iguales entre cada cuadrado/////*/              
+}
+
+.presentacion__contenido__titulo {
+    font-size: 2.25rem; /*Es el tamaño de la fuente*/
+    font-family: var(--fuente-krona); /*Fuente obtenida de google fonts. Importé el link dentro
+                                            del CSS y luego copié el font famili.*/
+}
+
+.titulo-destaque { /*El . (punto) al inicio, es el símbolo de la clase. Cáda vez que queira
+    utilizar una clase en CSS, voy a colocar éste punto*/
+color: var(--color-terceario);
+}
+
+
+.presentacion__contenido__texto {
+    font-size: 1.5rem;
+    font-family: var(--fuente-monterrat);
+}
+
+.presentacion__enlace {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+}
+
+.presentacion__enlace__subtitulo {
+    font-family: 'krona one', sans serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.presentacion__enlace__link {
+    width: 50%; /*Es el tamañano del boton*/
+    /*background-color: #22D4FD; Es el fondo del boton*/
+    text-align: center; /*El botón ya está centrado*/
+    padding: 24px 0; /*Esto es un espacio, en +este caso es el pacio de mi boton con las letras. Acá
+                         tengo dos valores, el 21.5 y el 0. Por que? El primer valor es el vertical y el 
+                         segundo valor es el horizonta. Yo solo quería cambiar el vertical, es por ello que
+                         mi segundo valor es 0*/
+    border-radius: 8px;/*Border: Es el borde del botón y Radius: es el radio, digamos las esquinas redondeadas*/ 
+    font-family: var(--fuente-monterrat);
+    font-size: 1.5rem;  
+    font-weight: 600; /*Es el tipo de font. Acá es Montserrat bold. por eso es weigth 600*/    
+    text-decoration: none; /*Esto es para sacarle las líneas al texto de los botones.*/   
+    color: var(--color-secundario);    
+    border: 2px solid var(--color-terceario); /* Crea un borde sólido */
+    display: flex;
+    justify-content: center; /*Justify y no aling porque estamos en el eje HORIZONTAL*/
+    gap: 10px;
+
+}
+
+.presentacion__enlace__link:hover { /*Este selector sirve para seleccionar elemento cupando pasas el mouse por encima*/
+    background-color: #272727; 
+}
+
+.presentacion__imagen {
+    width: 50%;
+}
+
+.pie__de__pagina {
+    background-color:var(--color-terceario);
+    padding: 24px;
+    color: #000;
+    text-align: center;
+    font-family: var(--fuente-monterrat);
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+@media (max-width: 1200px ) { /*Esta propiedad sirve para que cándo mi pagina llegue a los 1200px, el contenido
+                                de la misma se acomode en columna. De ahí la propiedad flexdirection:colum. El
+                                reverse sirve para la imágen en este caso quede primera y luego los botones. Es
+                                como un reverso, como la palabra lo dice*/
+    .header {
+        padding: 10%;
+    }   
+    .header__menu {
+        justify-content: center;
+    }                         
+    .presentacion{
+        flex-direction: column-reverse;
+        padding: 5%;
+    }
+    .presentacion__contenido {
+        width: auto;
+    }
+
+}
+
+
+
+/*IMPORTANTE: Imagina que estás construyendo una casa. Las clases en CSS son como los planos de la casa, te dicen cómo 
+debe ser cada habitación, su tamaño, su forma y su posición.
+El Box Model es como la estructura de la casa, define las paredes, el techo y el piso de cada habitación. 
+El Box Size es como el tamaño de cada habitación, define su ancho y alto. Y Flexbox es como el sistema 
+de organización de la casa, te permite colocar las habitaciones en el orden que quieras y ajustar su 
+tamaño y posición de forma flexible.
+Por ejemplo, si quieres que una habitación sea más grande, puedes usar el Box Size para ajustar su ancho 
+y alto. Si quieres que una habitación esté en la esquina de la casa, puedes usar Flexbox para 
+colocarla en la posición correcta.
+
+//// MEDIDAS RELATIVAS: font-size
+rem: 1 rem son 16 px. 2 rem son 32 px
+Porcentaje:Esta unidad de medida es relativa al elemento padre. Ej: una etiqueta que está adentro del body es hija del body
+100% es equivalente a 16px, 150% es equivalente a 24px.
+*/
